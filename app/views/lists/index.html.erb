@@ -1,0 +1,14 @@
+<% content_for(:title, "Lists | To Do") %>
+
+<h1>Lists</h1>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li>
+      <%= link_to list.name, list_path(list) %>
+    </li>
+  <% end %>
+</ul>
+
+<br />
+<%= link_to "New List", new_list_path %>
