@@ -40,6 +40,8 @@ group :development do
   gem 'spring'
 
   gem 'quiet_assets'
+
+  gem 'devise'
 end
 
 group :test, :development do
