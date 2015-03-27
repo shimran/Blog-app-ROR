@@ -1,19 +1,19 @@
-<% content_for(:title, "List | To Do" ) %>
+<% content_for(:title, "ShimCity Blog" ) %>
 
-<h1><%= @post.name %></h1>
+<h1><%= @posts.title %></h1>
 
-<h4><%= @post.description %></h4>
+<h4><%= @posts.description %></h4>
 
 
-<% if @post.comments.any? %>
+<% if @posts.comments.any? %>
   <h4>Here are the comments for this list:</h4>
 
   <ul>
-    <% @post.comments.each do |comment| %>
+    <% @posts.comments.each do |comment| %>
     <li>
       <%= comment.description %> |
-      <%= link_to "Edit", edit_post_comment_path(@post, comment) %> |
-      <%= link_to "Delete", list_comment_path(@list, comment),
+      <%= link_to "Edit", edit_post_comment_path(@posts, comment) %> |
+      <%= link_to "Delete", post_comment_path(@posts, comment),
                               :data => {:confirm => "Are you sure?",
                                         :method => "delete"} %>
     </li>
@@ -26,17 +26,17 @@
 <% end %>
 
 <p>
-  <%= link_to "Add a comment", new_list_task_path(@post) %>
+  <%= link_to "Add a comment", new_post_comment_path(@posts) %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_list_path(@post) %>
+  <%= link_to "Edit", edit_post_path(@posts) %>
 </p>
 <p>
-  <%= link_to "Delete", list_path(@post),
+  <%= link_to "Delete", post_path(@posts),
                         :data => {:confirm => "Are you sure?",
                                       :method => "delete"}%>
 </p>
 <p>
-  <%= link_to "Return to lists", lists_path %>
+  <%= link_to "Return to Posts", posts_path %>
 </p>

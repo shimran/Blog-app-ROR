@@ -1,9 +1,12 @@
-<%= render "layouts/errors", :object => @post %>
+<%= render "layouts/errors", :object => @posts %>
 
-<%= form_for @post do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%= form_for @posts do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_area :description %>
+  <%= f.label :name %>
+  <%= f.text_area :name %>
+
   <%= f.submit %>
 <% end %>

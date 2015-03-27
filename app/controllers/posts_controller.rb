@@ -8,7 +8,7 @@ class PostsController <ApplicationController
   end
 
   def create
-    @posts = Post.new(list_params)
+    @posts = Post.new(post_params)
     if @posts.save
       flash[:notice] = "Post was added successfully."
       redirect_to posts_path
@@ -23,7 +23,7 @@ class PostsController <ApplicationController
 
   def update
     @posts = Post.find(params[:id])
-    if @posts.update(list_params)
+    if @posts.update(post_params)
       flash[:notice] = "Post updated"
       redirect_to posts_path
     else
@@ -43,7 +43,7 @@ class PostsController <ApplicationController
   end
 
   private
-  def list_params
-    params.require(:posts).permit(:name, :description)
+  def post_params
+    params.require(:post).permit(:title, :description, :name)
   end
 end
